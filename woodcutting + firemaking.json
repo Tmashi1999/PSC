@@ -1,0 +1,1766 @@
+{
+  "sleep": "500",
+  "name": "woodcutting + firemaking",
+  "version": 1.0,
+  "actions": [
+    {
+      "id": "IF_FIRST_RUN",
+      "children": [
+        {
+          "id": "SET_VARIABLE",
+          "properties": {
+            "Value": "rand(1, 4)",
+            "Variable name": "area_fm"
+          },
+          "children": [
+            {
+              "id": "IF_VARIABLE_IS",
+              "properties": {
+                "Filter Value By": {
+                  "class": "Variable",
+                  "logic": "NONE",
+                  "type": "AS_TEXT",
+                  "operator": "EQUALS",
+                  "value": "1"
+                },
+                "Variable name": "area_fm"
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "(3147, 3487, 3180, 3479)",
+                    "Variable name": "area_fm"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "IF_VARIABLE_IS",
+              "properties": {
+                "Filter Value By": {
+                  "class": "Variable",
+                  "logic": "NONE",
+                  "type": "AS_TEXT",
+                  "operator": "EQUALS",
+                  "value": "2"
+                },
+                "Variable name": "area_fm"
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "(3148, 3500, 3181, 3493)",
+                    "Variable name": "area_fm"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "IF_VARIABLE_IS",
+              "properties": {
+                "Filter Value By": {
+                  "class": "Variable",
+                  "logic": "NONE",
+                  "type": "AS_TEXT",
+                  "operator": "EQUALS",
+                  "value": "3"
+                },
+                "Variable name": "area_fm"
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "(3167, 3397, 3180, 3380)",
+                    "Variable name": "area_fm"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "SET_VARIABLE",
+          "customDisplayName": "Set(area) variable \u0027ge\u0027 to \u00273161, 3486, 3167, 3485\u0027",
+          "properties": {
+            "Value": "(3161, 3486, 3167, 3485)",
+            "Variable name": "area_ge"
+          }
+        },
+        {
+          "id": "IF_VARIABLE_IS_NOT_SET",
+          "properties": {
+            "Variable name": "area_oak"
+          },
+          "children": [
+            {
+              "id": "SET_TO_RANDOM_TILE_IN_AREA",
+              "properties": {
+                "Area": "(3160, 3419, 3168, 3410)",
+                "Variable name": "area_oak"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_VARIABLE_IS_NOT_SET",
+          "properties": {
+            "Variable name": "area_tree"
+          },
+          "children": [
+            {
+              "id": "SET_TO_RANDOM_TILE_IN_AREA",
+              "properties": {
+                "Area": "(3160, 3419, 3168, 3410)",
+                "Variable name": "area_tree"
+              }
+            }
+          ]
+        },
+        {
+          "id": "SET_VARIABLE",
+          "properties": {
+            "Value": "true",
+            "Variable name": "banking"
+          }
+        },
+        {
+          "id": "COMMENT",
+          "properties": {
+            "Comment": "test"
+          }
+        },
+        {
+          "id": "SET_VARIABLE",
+          "properties": {
+            "Value": "false",
+            "Variable name": "banking"
+          }
+        },
+        {
+          "id": "SET_VARIABLE",
+          "properties": {
+            "Value": "true",
+            "Variable name": "woodcutting"
+          }
+        },
+        {
+          "id": "COMMENT",
+          "properties": {
+            "Comment": "test"
+          }
+        },
+        {
+          "id": "SET_VARIABLE",
+          "properties": {
+            "Value": "false",
+            "Variable name": "ge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IF_LOGGED_IN",
+      "children": [
+        {
+          "id": "IF_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "1"
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "1"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "ATTACK"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Bronze axe",
+                    "Variable name": "axe"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN",
+              "value": "6"
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "5"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "ATTACK"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Steel axe",
+                    "Variable name": "axe"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN",
+              "value": "11"
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "10"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "ATTACK"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Black axe",
+                    "Variable name": "axe"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN",
+              "value": "21"
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "20"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "ATTACK"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Mithril axe",
+                    "Variable name": "axe"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN",
+              "value": "31"
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "30"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "ATTACK"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Adamant axe",
+                    "Variable name": "axe"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IF_LOGGED_IN"
+    },
+    {
+      "id": "AND_BRANCH"
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "checking bank"
+      }
+    },
+    {
+      "id": "IF_VARIABLE_IS",
+      "properties": {
+        "Filter Value By": {
+          "class": "Variable",
+          "logic": "NONE",
+          "type": "AS_TEXT",
+          "operator": "EQUALS",
+          "value": "true"
+        },
+        "Variable name": "banking"
+      },
+      "children": [
+        {
+          "id": "WALK_FULLY_TO_NEAREST_BANK_WITH_TELEPORTS"
+        },
+        {
+          "id": "OPEN_BANK",
+          "children": [
+            {
+              "id": "SLEEP_BETWEEN",
+              "properties": {
+                "Minimum": "1000",
+                "Maximum": "2000"
+              }
+            },
+            {
+              "id": "BANK_DEPOSIT_ALL_EQUIPMENT"
+            },
+            {
+              "id": "SLEEP_BETWEEN",
+              "properties": {
+                "Minimum": "1000",
+                "Maximum": "2000"
+              }
+            },
+            {
+              "id": "BANK_DEPOSIT_ALL"
+            }
+          ]
+        },
+        {
+          "id": "IF_BANK_CONTAINS",
+          "properties": {
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "Bronze axe"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_BANK_CONTAINS",
+              "properties": {
+                "Filter Item By": {
+                  "class": "Item",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "Tinderbox"
+                }
+              },
+              "children": [
+                {
+                  "id": "BANK_WITHDRAW_ITEM",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "Tinderbox"
+                    },
+                    "Amount": "1"
+                  }
+                },
+                {
+                  "id": "BANK_WITHDRAW_ITEM",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "v(axe)"
+                    },
+                    "Amount": "1"
+                  }
+                },
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "true",
+                    "Variable name": "woodcutting"
+                  }
+                },
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "false",
+                    "Variable name": "banking"
+                  }
+                },
+                {
+                  "id": "RETURN_TO_START_OF_SCRIPT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ELSE_BRANCH",
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "banking"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "true",
+                "Variable name": "ge"
+              }
+            },
+            {
+              "id": "RETURN_TO_START_OF_SCRIPT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "grand exchange"
+      }
+    },
+    {
+      "id": "IF_VARIABLE_IS",
+      "properties": {
+        "Filter Value By": {
+          "class": "Variable",
+          "logic": "NONE",
+          "type": "AS_TEXT",
+          "operator": "EQUALS",
+          "value": "true"
+        },
+        "Variable name": "ge"
+      },
+      "children": [
+        {
+          "id": "WALK_FULLY_TO_CLOSEST_TILE_IN_AREA",
+          "properties": {
+            "Area": "v(area_ge)"
+          }
+        },
+        {
+          "id": "OPEN_GRAND_EXCHANGE"
+        },
+        {
+          "id": "IF_NO_SLOTS_ARE_EMPTY",
+          "children": [
+            {
+              "id": "CANCEL_OFFER_IN_SLOT",
+              "properties": {
+                "Slot": "0"
+              }
+            },
+            {
+              "id": "IF_GRAND_EXCHANGE_READY_TO_COLLECT",
+              "children": [
+                {
+                  "id": "COLLECT_GRAND_EXCHANGE"
+                }
+              ]
+            },
+            {
+              "id": "RETURN_TO_START_OF_SCRIPT"
+            }
+          ]
+        },
+        {
+          "id": "ELSE_BRANCH",
+          "children": [
+            {
+              "id": "BUY_ITEM_GRAND_EXCHANGE",
+              "properties": {
+                "Item Name": "v(axe)",
+                "Price": "+50%",
+                "Amount": "1"
+              }
+            },
+            {
+              "id": "SLEEP_BETWEEN",
+              "properties": {
+                "Minimum": "1000",
+                "Maximum": "2000"
+              }
+            },
+            {
+              "id": "BUY_ITEM_GRAND_EXCHANGE",
+              "properties": {
+                "Item Name": "Tinderbox",
+                "Price": "+50%",
+                "Amount": "1"
+              }
+            },
+            {
+              "id": "SLEEP_BETWEEN",
+              "properties": {
+                "Minimum": "1000",
+                "Maximum": "2000"
+              }
+            },
+            {
+              "id": "COLLECT_TO_BANK_GRAND_EXCHANGE"
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "banking"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "ge"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "true",
+                "Variable name": "woodcutting"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "true",
+                "Variable name": "banking"
+              }
+            },
+            {
+              "id": "RETURN_TO_START_OF_SCRIPT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IF_VARIABLE_IS",
+      "properties": {
+        "Filter Value By": {
+          "class": "Variable",
+          "logic": "NONE",
+          "type": "AS_TEXT",
+          "operator": "EQUALS",
+          "value": "true"
+        },
+        "Variable name": "woodcutting"
+      },
+      "children": [
+        {
+          "id": "INVENTORY_DESELECT"
+        },
+        {
+          "id": "IF_INVENTORY_CONTAINS_ANY",
+          "properties": {
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "v(log)"
+            }
+          }
+        },
+        {
+          "id": "AND_BRANCH"
+        },
+        {
+          "id": "IF_INVENTORY_IS_FULL",
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "woodcutting"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "true",
+                "Variable name": "firemaking"
+              }
+            },
+            {
+              "id": "RETURN_TO_START_OF_SCRIPT"
+            }
+          ]
+        },
+        {
+          "id": "ELSE_BRANCH",
+          "children": [
+            {
+              "id": "IF_EQUIPPED_ITEM_MATCHES",
+              "properties": {
+                "Filter Item By": {
+                  "class": "Item",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "v(axe)"
+                }
+              }
+            },
+            {
+              "id": "ELSE_BRANCH",
+              "children": [
+                {
+                  "id": "IF_INVENTORY_CONTAINS_ANY",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "v(axe)"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "EQUIP_MATCHING_ITEM",
+                      "properties": {
+                        "Filter Item By": {
+                          "class": "Item",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "v(axe)"
+                        },
+                        "Slot": {
+                          "class": "EquipmentSlot",
+                          "value": "HANDS"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE",
+                      "properties": {
+                        "Value": "true",
+                        "Variable name": "banking"
+                      }
+                    },
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "1",
+                  "filters": [
+                    {
+                      "logic": "AND",
+                      "operator": "LESS_THAN",
+                      "value": "15"
+                    }
+                  ]
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "WOODCUTTING"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Tree",
+                    "Variable name": "tree_to_cut"
+                  },
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE",
+                      "properties": {
+                        "Value": "Logs",
+                        "Variable name": "log"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_DISTANCE_TO_DESTINATION_IS",
+                  "properties": {
+                    "distance": {
+                      "class": "Number",
+                      "operator": "GREATER_THAN",
+                      "value": "2"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SLEEP_BETWEEN",
+                      "properties": {
+                        "Minimum": "900",
+                        "Maximum": "1000"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_LOCAL_PLAYER_MATCHES",
+                  "properties": {
+                    "Filter By": {
+                      "class": "Player",
+                      "logic": "NONE",
+                      "type": "IN_AREA",
+                      "operator": "EQUALS",
+                      "value": "3158, 3418, 3170, 3365"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_GAME_OBJECT_EXISTS",
+                      "properties": {
+                        "Filter Object By": {
+                          "class": "GameObject",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Tree"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "GAME_OBJECT_INTERACT",
+                          "properties": {
+                            "Don\u0027t walk to object": false,
+                            "Action": "Chop down",
+                            "Filter Object By": {
+                              "class": "GameObject",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "Tree"
+                            },
+                            "Force left click": false
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_WHILE_ANIMATING"
+                            },
+                            {
+                              "id": "SLEEP_BETWEEN",
+                              "properties": {
+                                "Minimum": "200",
+                                "Maximum": "300"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "WALK_TO_AREA",
+                      "properties": {
+                        "Area": "3158, 3418, 3170, 3365"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_GAINED_LEVELS_MATCHES",
+                  "properties": {
+                    "Skill": {
+                      "class": "Skill",
+                      "value": "WOODCUTTING"
+                    },
+                    "levels gained": {
+                      "class": "Number",
+                      "operator": "EQUALS",
+                      "value": "1"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_SKILL_LEVEL_IS",
+                      "properties": {
+                        "level": {
+                          "class": "Number",
+                          "operator": "EQUALS",
+                          "value": "15"
+                        },
+                        "Skill": {
+                          "class": "Skill",
+                          "value": "WOODCUTTING"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "SET_VARIABLE",
+                          "properties": {
+                            "Value": "true",
+                            "Variable name": "banking"
+                          }
+                        },
+                        {
+                          "id": "LOG",
+                          "properties": {
+                            "Message": "wood cutting lvl 15 changing axe and log"
+                          },
+                          "children": [
+                            {
+                              "id": "RETURN_TO_START_OF_SCRIPT"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "15",
+                  "filters": [
+                    {
+                      "logic": "AND",
+                      "operator": "LESS_THAN",
+                      "value": "30"
+                    }
+                  ]
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "WOODCUTTING"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Oak tree",
+                    "Variable name": "tree_to_cut"
+                  },
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE",
+                      "properties": {
+                        "Value": "Oak logs",
+                        "Variable name": "log"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_DISTANCE_TO_DESTINATION_IS",
+                  "properties": {
+                    "distance": {
+                      "class": "Number",
+                      "operator": "GREATER_THAN",
+                      "value": "2"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SLEEP_BETWEEN",
+                      "properties": {
+                        "Minimum": "900",
+                        "Maximum": "1000"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_LOCAL_PLAYER_MATCHES",
+                  "properties": {
+                    "Filter By": {
+                      "class": "Player",
+                      "logic": "NONE",
+                      "type": "IN_AREA",
+                      "operator": "EQUALS",
+                      "value": "3157, 3416, 3172, 3374"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_GAME_OBJECT_EXISTS",
+                      "properties": {
+                        "Filter Object By": {
+                          "class": "GameObject",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Oak tree"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "GAME_OBJECT_INTERACT",
+                          "properties": {
+                            "Don\u0027t walk to object": false,
+                            "Action": "Chop down",
+                            "Filter Object By": {
+                              "class": "GameObject",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "Oak tree"
+                            },
+                            "Force left click": false
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_WHILE_ANIMATING"
+                            },
+                            {
+                              "id": "SLEEP_BETWEEN",
+                              "properties": {
+                                "Minimum": "200",
+                                "Maximum": "300"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "WALK_TO_AREA",
+                      "properties": {
+                        "Area": "3157, 3416, 3172, 3374"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_GAINED_LEVELS_MATCHES",
+                  "properties": {
+                    "Skill": {
+                      "class": "Skill",
+                      "value": "WOODCUTTING"
+                    },
+                    "levels gained": {
+                      "class": "Number",
+                      "operator": "EQUALS",
+                      "value": "1"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_SKILL_LEVEL_IS",
+                      "properties": {
+                        "level": {
+                          "class": "Number",
+                          "operator": "EQUALS",
+                          "value": "30"
+                        },
+                        "Skill": {
+                          "class": "Skill",
+                          "value": "WOODCUTTING"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "SET_VARIABLE",
+                          "properties": {
+                            "Value": "true",
+                            "Variable name": "banking"
+                          }
+                        },
+                        {
+                          "id": "LOG",
+                          "properties": {
+                            "Message": "wood cutting lvl 30 changing axe and log"
+                          },
+                          "children": [
+                            {
+                              "id": "RETURN_TO_START_OF_SCRIPT"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "30",
+                  "filters": [
+                    {
+                      "logic": "AND",
+                      "operator": "LESS_THAN",
+                      "value": "60"
+                    }
+                  ]
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "WOODCUTTING"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Willow tree",
+                    "Variable name": "tree_to_cut"
+                  },
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE",
+                      "properties": {
+                        "Value": "Oak_logs",
+                        "Variable name": "log"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_DISTANCE_TO_DESTINATION_IS",
+                  "properties": {
+                    "distance": {
+                      "class": "Number",
+                      "operator": "GREATER_THAN",
+                      "value": "2"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SLEEP_BETWEEN",
+                      "properties": {
+                        "Minimum": "900",
+                        "Maximum": "1000"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_LOCAL_PLAYER_MATCHES",
+                  "properties": {
+                    "Filter By": {
+                      "class": "Player",
+                      "logic": "NONE",
+                      "type": "IN_AREA",
+                      "operator": "EQUALS",
+                      "value": "3081, 3240, 3094, 3225"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_GAME_OBJECT_EXISTS",
+                      "properties": {
+                        "Filter Object By": {
+                          "class": "GameObject",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Willow tree"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "GAME_OBJECT_INTERACT",
+                          "properties": {
+                            "Don\u0027t walk to object": false,
+                            "Action": "Chop down",
+                            "Filter Object By": {
+                              "class": "GameObject",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "Willow tree"
+                            },
+                            "Force left click": false
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_WHILE_ANIMATING"
+                            },
+                            {
+                              "id": "SLEEP_BETWEEN",
+                              "properties": {
+                                "Minimum": "200",
+                                "Maximum": "300"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "WALK_TO_AREA",
+                      "properties": {
+                        "Area": "3081, 3240, 3094, 3225"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_GAINED_LEVELS_MATCHES",
+                  "properties": {
+                    "Skill": {
+                      "class": "Skill",
+                      "value": "WOODCUTTING"
+                    },
+                    "levels gained": {
+                      "class": "Number",
+                      "operator": "EQUALS",
+                      "value": "1"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_SKILL_LEVEL_IS",
+                      "properties": {
+                        "level": {
+                          "class": "Number",
+                          "operator": "EQUALS",
+                          "value": "60"
+                        },
+                        "Skill": {
+                          "class": "Skill",
+                          "value": "WOODCUTTING"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "SET_VARIABLE",
+                          "properties": {
+                            "Value": "true",
+                            "Variable name": "banking"
+                          }
+                        },
+                        {
+                          "id": "LOG",
+                          "properties": {
+                            "Message": "wood cutting lvl 60 changing axe and log"
+                          },
+                          "children": [
+                            {
+                              "id": "RETURN_TO_START_OF_SCRIPT"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_SKILL_LEVEL_IS",
+              "properties": {
+                "level": {
+                  "class": "Number",
+                  "operator": "GREATER_THAN_OR_EQUALS",
+                  "value": "60"
+                },
+                "Skill": {
+                  "class": "Skill",
+                  "value": "WOODCUTTING"
+                }
+              },
+              "children": [
+                {
+                  "id": "SET_VARIABLE",
+                  "properties": {
+                    "Value": "Yew tree",
+                    "Variable name": "tree_to_cut"
+                  },
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE",
+                      "properties": {
+                        "Value": "Yew logs",
+                        "Variable name": "log"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_DISTANCE_TO_DESTINATION_IS",
+                  "properties": {
+                    "distance": {
+                      "class": "Number",
+                      "operator": "GREATER_THAN",
+                      "value": "2"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SLEEP_BETWEEN",
+                      "properties": {
+                        "Minimum": "900",
+                        "Maximum": "1000"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_LOCAL_PLAYER_MATCHES",
+                  "properties": {
+                    "Filter By": {
+                      "class": "Player",
+                      "logic": "NONE",
+                      "type": "IN_AREA",
+                      "operator": "EQUALS",
+                      "value": "3203,3506,3211,3506,3212,3498,3207,3498,3205,3501,3203,3501"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_GAME_OBJECT_EXISTS",
+                      "properties": {
+                        "Filter Object By": {
+                          "class": "GameObject",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Yew"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "GAME_OBJECT_INTERACT",
+                          "properties": {
+                            "Don\u0027t walk to object": false,
+                            "Action": "Chop down",
+                            "Filter Object By": {
+                              "class": "GameObject",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "Yew"
+                            },
+                            "Force left click": false
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_WHILE_ANIMATING"
+                            },
+                            {
+                              "id": "SLEEP_BETWEEN",
+                              "properties": {
+                                "Minimum": "200",
+                                "Maximum": "300"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "WALK_TO_AREA",
+                      "properties": {
+                        "Area": "3203,3506,3211,3506,3212,3498,3207,3498,3205,3501,3203,3501"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "RETURN_TO_START_OF_SCRIPT"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IF_VARIABLE_IS",
+      "properties": {
+        "Filter Value By": {
+          "class": "Variable",
+          "logic": "NONE",
+          "type": "AS_TEXT",
+          "operator": "EQUALS",
+          "value": "true"
+        },
+        "Variable name": "firemaking"
+      },
+      "children": [
+        {
+          "id": "IF_INVENTORY_DOES_NOT_CONTAIN_ANY",
+          "properties": {
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "v(log)"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "firemaking"
+              }
+            },
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "true",
+                "Variable name": "woodcutting"
+              }
+            },
+            {
+              "id": "RETURN_TO_START_OF_SCRIPT"
+            }
+          ]
+        },
+        {
+          "id": "IF_LOCAL_PLAYER_MATCHES",
+          "properties": {
+            "Filter By": {
+              "class": "Player",
+              "logic": "NONE",
+              "type": "IN_AREA",
+              "operator": "EQUALS",
+              "value": "v(area_fm)"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_LOCAL_PLAYER_MATCHES",
+              "properties": {
+                "Filter By": {
+                  "class": "Player",
+                  "logic": "NONE",
+                  "type": "ANIMATING",
+                  "operator": "EQUALS",
+                  "filters": [
+                    {
+                      "class": "Player",
+                      "logic": "OR",
+                      "type": "MOVING",
+                      "operator": "EQUALS"
+                    }
+                  ]
+                }
+              },
+              "children": [
+                {
+                  "id": "SLEEP_WHILE_ANIMATING"
+                },
+                {
+                  "id": "SLEEP_WHILE_MOVING"
+                }
+              ]
+            },
+            {
+              "id": "IF_INVENTORY_CONTAINS_ANY",
+              "properties": {
+                "Filter Item By": {
+                  "class": "Item",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "Tinderbox",
+                  "filters": [
+                    {
+                      "class": "Item",
+                      "logic": "OR",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "v(log)"
+                    }
+                  ]
+                }
+              },
+              "children": [
+                {
+                  "id": "IF_GAME_OBJECT_EXISTS",
+                  "properties": {
+                    "Filter Object By": {
+                      "class": "GameObject",
+                      "logic": "NONE",
+                      "type": "IS_UNDER_PLAYER",
+                      "operator": "EQUALS",
+                      "filters": [
+                        {
+                          "class": "GameObject",
+                          "logic": "AND",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Fire"
+                        }
+                      ]
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SET_VARIABLE_TO_LOCAL_TILE",
+                      "properties": {
+                        "Variable name": "current_tile"
+                      },
+                      "children": [
+                        {
+                          "id": "SET_VARIABLE_TO_TRANSLATED_TILE",
+                          "properties": {
+                            "X": "+1",
+                            "Tile": "v(current_tile)",
+                            "Y": "+1",
+                            "Variable name": "moved_tile"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "WALK_TO_TILE",
+                      "properties": {
+                        "Tile": "v(moved_tile)"
+                      },
+                      "children": [
+                        {
+                          "id": "SLEEP_BETWEEN",
+                          "properties": {
+                            "Minimum": "800",
+                            "Maximum": "1200"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_LOCAL_PLAYER_MATCHES",
+                  "properties": {
+                    "Filter By": {
+                      "class": "Player",
+                      "logic": "NONE",
+                      "type": "NOT_ANIMATING",
+                      "operator": "EQUALS",
+                      "filters": [
+                        {
+                          "class": "Player",
+                          "logic": "OR",
+                          "type": "NOT_MOVING",
+                          "operator": "EQUALS"
+                        },
+                        {
+                          "class": "Player",
+                          "logic": "OR",
+                          "type": "TILE",
+                          "operator": "EQUALS",
+                          "value": "v(moved_tile)"
+                        },
+                        {
+                          "class": "Player",
+                          "logic": "OR",
+                          "type": "TILE",
+                          "operator": "EQUALS",
+                          "value": "v(area_fm)"
+                        }
+                      ]
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "SLEEP_BETWEEN",
+                      "properties": {
+                        "Minimum": "200",
+                        "Maximum": "400"
+                      }
+                    },
+                    {
+                      "id": "IF_INVENTORY_ITEM_IS_NOT_SELECTED",
+                      "children": [
+                        {
+                          "id": "INTERACT_WITH_INVENTORY_ITEM",
+                          "properties": {
+                            "Filter Item By": {
+                              "class": "Item",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "Tinderbox"
+                            },
+                            "Action": ""
+                          },
+                          "children": [
+                            {
+                              "id": "IF_LOCAL_PLAYER_MATCHES",
+                              "properties": {
+                                "Filter By": {
+                                  "class": "Player",
+                                  "logic": "NONE",
+                                  "type": "ANIMATING",
+                                  "operator": "EQUALS",
+                                  "filters": [
+                                    {
+                                      "class": "Player",
+                                      "logic": "OR",
+                                      "type": "MOVING",
+                                      "operator": "EQUALS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "SLEEP_WHILE_ANIMATING"
+                                },
+                                {
+                                  "id": "SLEEP_WHILE_MOVING"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "SLEEP_BETWEEN",
+                          "properties": {
+                            "Minimum": "400",
+                            "Maximum": "800"
+                          }
+                        },
+                        {
+                          "id": "INTERACT_WITH_INVENTORY_ITEM",
+                          "properties": {
+                            "Filter Item By": {
+                              "class": "Item",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "v(log)"
+                            },
+                            "Action": ""
+                          }
+                        },
+                        {
+                          "id": "IF_LOCAL_PLAYER_MATCHES",
+                          "properties": {
+                            "Filter By": {
+                              "class": "Player",
+                              "logic": "NONE",
+                              "type": "ANIMATING",
+                              "operator": "EQUALS",
+                              "filters": [
+                                {
+                                  "class": "Player",
+                                  "logic": "OR",
+                                  "type": "MOVING",
+                                  "operator": "EQUALS"
+                                }
+                              ]
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_WHILE_ANIMATING"
+                            },
+                            {
+                              "id": "SLEEP_WHILE_MOVING"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ELSE_BRANCH",
+                          "children": [
+                            {
+                              "id": "RETURN_TO_START_OF_SCRIPT"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ELSE_BRANCH",
+                      "children": [
+                        {
+                          "id": "INVENTORY_DESELECT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "WALK_FULLY_TO_CLOSEST_TILE_IN_AREA",
+                      "properties": {
+                        "Area": "v(area_fm)"
+                      }
+                    },
+                    {
+                      "id": "RETURN_TO_START_OF_SCRIPT"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ELSE_BRANCH",
+          "children": [
+            {
+              "id": "WALK_FULLY_TO_AREA",
+              "properties": {
+                "Area": "v(area_fm)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
