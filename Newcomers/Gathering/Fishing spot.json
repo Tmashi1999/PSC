@@ -1,0 +1,200 @@
+{
+  "sleep": "500",
+  "name": "",
+  "version": 1.0,
+  "actions": [
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "Wrong"
+      },
+      "children": [
+        {
+          "id": "IF_NPC_EXISTS",
+          "properties": {
+            "Filter NPC By": {
+              "class": "NPC",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "Fishing spot"
+            }
+          },
+          "children": [
+            {
+              "id": "NPC_INTERACT",
+              "properties": {
+                "Filter NPC By": {
+                  "class": "NPC",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "Fishing spot"
+                },
+                "Action": "Net"
+              },
+              "children": [
+                {
+                  "id": "SLEEP_WHILE_MOVING",
+                  "properties": {
+                    "Stopped for (seconds)": "1"
+                  }
+                },
+                {
+                  "id": "SLEEP_WHILE_ANIMATING",
+                  "properties": {
+                    "Stopped for (seconds)": "1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "Right"
+      },
+      "children": [
+        {
+          "id": "IF_LOCAL_PLAYER_MATCHES",
+          "properties": {
+            "Filter By": {
+              "class": "Player",
+              "logic": "NONE",
+              "type": "NOT_ANIMATING",
+              "operator": "EQUALS",
+              "filters": [
+                {
+                  "class": "Player",
+                  "logic": "AND",
+                  "type": "NOT_MOVING",
+                  "operator": "EQUALS"
+                }
+              ]
+            }
+          },
+          "children": [
+            {
+              "id": "IF_NPC_EXISTS",
+              "properties": {
+                "Filter NPC By": {
+                  "class": "NPC",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "Fishing spot"
+                }
+              },
+              "children": [
+                {
+                  "id": "NPC_INTERACT",
+                  "properties": {
+                    "Filter NPC By": {
+                      "class": "NPC",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "Fishing spot"
+                    },
+                    "Action": "Net"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "The reason the top section is \"Wrong\" is because your bricking "
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "your script, but by \"reverse scripting\" like the \"Right\" script"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "your script doesnt get bricked, you can even make the inventory"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "check if it has a fishing net like this"
+      },
+      "children": [
+        {
+          "id": "IF_INVENTORY_CONTAINS_ANY",
+          "properties": {
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "Fishing net"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_LOCAL_PLAYER_MATCHES",
+              "properties": {
+                "Filter By": {
+                  "class": "Player",
+                  "logic": "NONE",
+                  "type": "NOT_ANIMATING",
+                  "operator": "EQUALS",
+                  "filters": [
+                    {
+                      "class": "Player",
+                      "logic": "AND",
+                      "type": "NOT_MOVING",
+                      "operator": "EQUALS"
+                    }
+                  ]
+                }
+              },
+              "children": [
+                {
+                  "id": "IF_NPC_EXISTS",
+                  "properties": {
+                    "Filter NPC By": {
+                      "class": "NPC",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "Fishing spot"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "NPC_INTERACT",
+                      "properties": {
+                        "Filter NPC By": {
+                          "class": "NPC",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "Fishing spot"
+                        },
+                        "Action": "Net"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
