@@ -1,0 +1,59 @@
+{
+  "sleep": "500",
+  "name": "",
+  "version": 1.0,
+  "actions": [
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "This script will check if the inventory contains an axe"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "if it doesnt, it checks if the bank is open and do whatever is next"
+      }
+    },
+    {
+      "id": "IF_INVENTORY_DOES_NOT_CONTAIN_ANY",
+      "properties": {
+        "Filter Item By": {
+          "class": "Item",
+          "logic": "NONE",
+          "type": "NAME",
+          "operator": "EQUALS",
+          "value": "Bronze axe"
+        }
+      },
+      "children": [
+        {
+          "id": "IF_BANK_IS_NOT_OPEN",
+          "children": [
+            {
+              "id": "AUTOMATOR_OPEN_NEAREST_BANK"
+            }
+          ]
+        },
+        {
+          "id": "IF_BANK_IS_OPEN",
+          "children": [
+            {
+              "id": "BANK_WITHDRAW_ITEM",
+              "properties": {
+                "Filter Item By": {
+                  "class": "Item",
+                  "logic": "NONE",
+                  "type": "NAME",
+                  "operator": "EQUALS",
+                  "value": "Bronze axe"
+                },
+                "Amount": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
