@@ -1,0 +1,64 @@
+{
+  "sleep": "500",
+  "name": "",
+  "version": 1.0,
+  "actions": [
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "This is how you set a variable with area\u0027s using this website https://explv.github.io/"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "your able to copy the position, and right click paste as area"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "in places like variables"
+      }
+    },
+    {
+      "id": "SET_VARIABLE",
+      "properties": {
+        "Value": "3218, 3222, 3226, 3212",
+        "Variable name": "Lumbridge"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "this is saying, if were not in the area walk to the area of lumbridge"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "remember when calling a varaible we use v(Variable name)"
+      }
+    },
+    {
+      "id": "IF_LOCAL_PLAYER_MATCHES",
+      "properties": {
+        "Filter By": {
+          "class": "Player",
+          "logic": "NONE",
+          "type": "NOT_IN_AREA",
+          "operator": "EQUALS",
+          "value": "v(Lumbridge)"
+        }
+      },
+      "children": [
+        {
+          "id": "WALK_TO_TILE",
+          "properties": {
+            "Tile": "v(Lumbridge)"
+          }
+        }
+      ]
+    }
+  ]
+}
