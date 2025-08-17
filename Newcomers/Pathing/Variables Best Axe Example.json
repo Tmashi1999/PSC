@@ -1,0 +1,882 @@
+{
+  "sleep": "500",
+  "name": "",
+  "version": 1.0,
+  "actions": [
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "this is quite a far jump from what you\u0027ve been learning so far but,"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "this is a good use of the power of variables and what the can do."
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "such as based off my woodcutting level i can set my best axe as "
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "anything i want"
+      }
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "Axe Grabbing //"
+      },
+      "children": [
+        {
+          "id": "IF_INVENTORY_DOES_NOT_CONTAIN_ANY",
+          "properties": {
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "v(BestAxe)"
+            }
+          },
+          "children": [
+            {
+              "id": "IF_BANK_IS_CACHED",
+              "children": [
+                {
+                  "id": "IF_BANK_CONTAINS",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "v(BestAxe)"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "OPEN_BANK",
+                      "children": [
+                        {
+                          "id": "BANK_DEPOSIT_ALL",
+                          "children": [
+                            {
+                              "id": "BANK_DEPOSIT_ALL_EQUIPMENT",
+                              "children": [
+                                {
+                                  "id": "BANK_WITHDRAW_ITEM",
+                                  "properties": {
+                                    "Filter Item By": {
+                                      "class": "Item",
+                                      "logic": "NONE",
+                                      "type": "NAME",
+                                      "operator": "EQUALS",
+                                      "value": "v(BestAxe)"
+                                    },
+                                    "Amount": "1"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "IF_BANK_DOES_NOT_CONTAIN",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "v(BestAxe)"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "CUSTOM_b5c2cc93-e7d5-4869-a949-79456f24fdb1",
+                      "properties": {
+                        "Item": "v(BestAxe)",
+                        "Increase": "100",
+                        "Wait": "30",
+                        "Price": "livePriceHigh(v(BestAxe))",
+                        "Amount": "1"
+                      },
+                      "children": [
+                        {
+                          "id": "IF_INVENTORY_CONTAINS_ANY",
+                          "properties": {
+                            "Filter Item By": {
+                              "class": "Item",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "v(BestAxe)"
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "WIDGET_INTERACT",
+                              "properties": {
+                                "Action": "Close",
+                                "Find Widget By": {
+                                  "class": "Widget",
+                                  "logic": "NONE",
+                                  "type": "WIDGET_ID",
+                                  "operator": "EQUALS",
+                                  "value": "465, 2, 11"
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "BANK_DEPOSIT_ALL_EQUIPMENT",
+                                  "children": [
+                                    {
+                                      "id": "BANK_DEPOSIT_ALL_EXCEPT",
+                                      "properties": {
+                                        "Filter Item By": {
+                                          "class": "Item",
+                                          "logic": "NONE",
+                                          "type": "NAME",
+                                          "operator": "EQUALS",
+                                          "value": "v(BestAxe)"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_BANK_IS_NOT_CACHED",
+              "children": [
+                {
+                  "id": "OPEN_BANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "COMMENT",
+      "properties": {
+        "Comment": "Best Axe To Use //"
+      },
+      "children": [
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "1",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "6"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Iron axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "6",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "11"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Steel axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "11",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "21"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Black axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "21",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "31"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Mithril axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "31",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "41"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Adamant axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_BOOSTED_SKILL_LEVEL_IS",
+          "properties": {
+            "level": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "41",
+              "filters": [
+                {
+                  "logic": "AND",
+                  "operator": "LESS_THAN",
+                  "value": "61"
+                }
+              ]
+            },
+            "Skill": {
+              "class": "Skill",
+              "value": "WOODCUTTING"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "Rune axe",
+                "Variable name": "BestAxe"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "customActions": {
+    "b5c2cc93-e7d5-4869-a949-79456f24fdb1": {
+      "id": "b5c2cc93-e7d5-4869-a949-79456f24fdb1",
+      "name": "G.E Buyer Lite",
+      "description": "Buys item from G.E",
+      "parameters": "Item, Amount, Price, Increase, Wait",
+      "fail": true,
+      "actions": [
+        {
+          "id": "IF_VARIABLE_IS_NOT_SET",
+          "properties": {
+            "Variable name": "increase_price"
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "0",
+                "Variable name": "increase_price"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_VARIABLE_IS_NOT_SET",
+          "properties": {
+            "Variable name": "buy_offer"
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE",
+              "properties": {
+                "Value": "false",
+                "Variable name": "buy_offer"
+              }
+            }
+          ]
+        },
+        {
+          "id": "IF_INVENTORY_COUNT",
+          "properties": {
+            "count": {
+              "class": "Number",
+              "operator": "GREATER_THAN_OR_EQUALS",
+              "value": "0"
+            },
+            "Filter Item By": {
+              "class": "Item",
+              "logic": "NONE",
+              "type": "NAME",
+              "operator": "EQUALS",
+              "value": "p(Item)"
+            }
+          },
+          "children": [
+            {
+              "id": "SET_VARIABLE_TO_LAST_OUTPUT",
+              "properties": {
+                "Variable name": "inv_count"
+              }
+            },
+            {
+              "id": "IF_VARIABLE_IS",
+              "properties": {
+                "Filter Value By": {
+                  "class": "Variable",
+                  "logic": "NONE",
+                  "type": "AS_NUMBER",
+                  "operator": "GREATER_THAN_OR_EQUAL",
+                  "value": "p(Amount)"
+                },
+                "Variable name": "inv_count"
+              },
+              "children": [
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "buy_offer"
+                  }
+                },
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "inv_count"
+                  }
+                },
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "increase_price"
+                  }
+                },
+                {
+                  "id": "_CUSTOM_ACTION_RETURN_TRUE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_VARIABLE_IS",
+          "properties": {
+            "Filter Value By": {
+              "class": "Variable",
+              "logic": "NONE",
+              "type": "AS_BOOLEAN",
+              "operator": "IS_FALSE"
+            },
+            "Variable name": "buy_offer"
+          },
+          "children": [
+            {
+              "id": "IF_GRAND_EXCHANGE_IS_NOT_OPEN",
+              "children": [
+                {
+                  "id": "OPEN_GRAND_EXCHANGE",
+                  "children": [
+                    {
+                      "id": "SLEEP_NORMAL_DISTRIBUTION",
+                      "properties": {
+                        "Mean": "1500",
+                        "Variance": "500"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_GRAND_EXCHANGE_IS_OPEN",
+              "children": [
+                {
+                  "id": "IF_OFFER_DOES_NOT_EXIST",
+                  "properties": {
+                    "Filter Item By": {
+                      "class": "Item",
+                      "logic": "NONE",
+                      "type": "NAME",
+                      "operator": "EQUALS",
+                      "value": "p(Item)"
+                    }
+                  },
+                  "children": [
+                    {
+                      "id": "IF_ANY_SLOT_IS_EMPTY",
+                      "children": [
+                        {
+                          "id": "BUY_ITEM_GRAND_EXCHANGE",
+                          "properties": {
+                            "Item Name": "p(Item)",
+                            "Buy as many as we can afford": false,
+                            "Price": "add(p(Price),mul(p(Increase),v(increase_price)))",
+                            "Amount": "sub(p(Amount),v(inv_count))"
+                          },
+                          "children": [
+                            {
+                              "id": "SLEEP_NORMAL_DISTRIBUTION",
+                              "properties": {
+                                "Mean": "1500",
+                                "Variance": "500"
+                              }
+                            },
+                            {
+                              "id": "IF_OFFER_EXISTS",
+                              "properties": {
+                                "Filter Item By": {
+                                  "class": "Item",
+                                  "logic": "NONE",
+                                  "type": "NAME",
+                                  "operator": "EQUALS",
+                                  "value": "p(Item)"
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "SLEEP_UNTIL_ANY_INSIDE_IS_TRUE",
+                                  "properties": {
+                                    "Max time (seconds)": "p(Wait)"
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "IF_WIDGET_EXISTS",
+                                      "properties": {
+                                        "Find Widget By": {
+                                          "class": "Widget",
+                                          "logic": "NONE",
+                                          "type": "TEXT_COLOR",
+                                          "operator": "EQUALS",
+                                          "value": "24320"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "IF_GAME_MESSAGE_RECEIVED_MATCHES",
+                              "properties": {
+                                "Filter Message": {
+                                  "class": "Message",
+                                  "logic": "NONE",
+                                  "type": "TEXT",
+                                  "operator": "CONTAINS",
+                                  "value": "You haven\u0027t got"
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "CLOSE_GRAND_EXCHANGE",
+                                  "children": [
+                                    {
+                                      "id": "DELETE_VARIABLE",
+                                      "properties": {
+                                        "Variable name": "buy_offer"
+                                      }
+                                    },
+                                    {
+                                      "id": "DELETE_VARIABLE",
+                                      "properties": {
+                                        "Variable name": "inv_count"
+                                      }
+                                    },
+                                    {
+                                      "id": "DELETE_VARIABLE",
+                                      "properties": {
+                                        "Variable name": "increase_price"
+                                      }
+                                    },
+                                    {
+                                      "id": "LOG",
+                                      "properties": {
+                                        "Message": "Not enough GP."
+                                      }
+                                    },
+                                    {
+                                      "id": "_CUSTOM_ACTION_RETURN_FALSE"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ELSE_BRANCH",
+                      "children": [
+                        {
+                          "id": "CANCEL_ALL_OFFERS",
+                          "children": [
+                            {
+                              "id": "SLEEP_NORMAL_DISTRIBUTION",
+                              "properties": {
+                                "Mean": "1500",
+                                "Variance": "500"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "COLLECT_TO_BANK_GRAND_EXCHANGE",
+                          "children": [
+                            {
+                              "id": "SLEEP_NORMAL_DISTRIBUTION",
+                              "properties": {
+                                "Mean": "1500",
+                                "Variance": "500"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "ELSE_BRANCH",
+                  "children": [
+                    {
+                      "id": "IF_WIDGET_EXISTS",
+                      "properties": {
+                        "Find Widget By": {
+                          "class": "Widget",
+                          "logic": "NONE",
+                          "type": "TEXT_COLOR",
+                          "operator": "EQUALS",
+                          "value": "24320"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "SET_VARIABLE",
+                          "properties": {
+                            "Value": "true",
+                            "Variable name": "buy_offer"
+                          },
+                          "children": [
+                            {
+                              "id": "_CUSTOM_ACTION_RETURN_TO_START"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "IF_OFFER_EXISTS",
+                      "properties": {
+                        "Filter Item By": {
+                          "class": "Item",
+                          "logic": "NONE",
+                          "type": "NAME",
+                          "operator": "EQUALS",
+                          "value": "p(Item)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "IF_GRAND_EXCHANGE_NOT_READY_TO_COLLECT",
+                          "children": [
+                            {
+                              "id": "CANCEL_ALL_OFFERS",
+                              "children": [
+                                {
+                                  "id": "SLEEP_UNTIL_ANY_INSIDE_IS_TRUE",
+                                  "properties": {
+                                    "Max time (seconds)": "3"
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "IF_GRAND_EXCHANGE_READY_TO_COLLECT"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "SLEEP_NORMAL_DISTRIBUTION",
+                                  "properties": {
+                                    "Mean": "1500",
+                                    "Variance": "500"
+                                  }
+                                },
+                                {
+                                  "id": "IF_GRAND_EXCHANGE_READY_TO_COLLECT",
+                                  "children": [
+                                    {
+                                      "id": "COLLECT_GRAND_EXCHANGE",
+                                      "children": [
+                                        {
+                                          "id": "SLEEP_UNTIL_ANY_INSIDE_IS_TRUE",
+                                          "properties": {
+                                            "Max time (seconds)": "3"
+                                          },
+                                          "children": [
+                                            {
+                                              "id": "IF_OFFER_DOES_NOT_EXIST",
+                                              "properties": {
+                                                "Filter Item By": {
+                                                  "class": "Item",
+                                                  "logic": "NONE",
+                                                  "type": "NAME",
+                                                  "operator": "EQUALS",
+                                                  "value": "p(Item)"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "SLEEP_NORMAL_DISTRIBUTION",
+                                  "properties": {
+                                    "Mean": "1500",
+                                    "Variance": "500"
+                                  }
+                                },
+                                {
+                                  "id": "IF_OFFER_DOES_NOT_EXIST",
+                                  "properties": {
+                                    "Filter Item By": {
+                                      "class": "Item",
+                                      "logic": "NONE",
+                                      "type": "NAME",
+                                      "operator": "EQUALS",
+                                      "value": "p(Item)"
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "ADD_TO_VARIABLE",
+                                      "properties": {
+                                        "Variable name": "increase_price",
+                                        "By": "1"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "IF_VARIABLE_IS",
+          "properties": {
+            "Filter Value By": {
+              "class": "Variable",
+              "logic": "NONE",
+              "type": "AS_BOOLEAN",
+              "operator": "IS_TRUE"
+            },
+            "Variable name": "buy_offer"
+          },
+          "children": [
+            {
+              "id": "IF_GRAND_EXCHANGE_READY_TO_COLLECT",
+              "children": [
+                {
+                  "id": "COLLECT_GRAND_EXCHANGE",
+                  "children": [
+                    {
+                      "id": "SLEEP_UNTIL_ANY_INSIDE_IS_TRUE",
+                      "properties": {
+                        "Max time (seconds)": "3"
+                      },
+                      "children": [
+                        {
+                          "id": "IF_OFFER_DOES_NOT_EXIST",
+                          "properties": {
+                            "Filter Item By": {
+                              "class": "Item",
+                              "logic": "NONE",
+                              "type": "NAME",
+                              "operator": "EQUALS",
+                              "value": "p(Item)",
+                              "filters": [
+                                {
+                                  "class": "Item",
+                                  "logic": "AND",
+                                  "type": "AMOUNT",
+                                  "operator": "EQUALS",
+                                  "value": "p(Amount)"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "SLEEP_NORMAL_DISTRIBUTION",
+                      "properties": {
+                        "Mean": "1500",
+                        "Variance": "500"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "IF_VARIABLE_IS",
+              "properties": {
+                "Filter Value By": {
+                  "class": "Variable",
+                  "logic": "NONE",
+                  "type": "AS_NUMBER",
+                  "operator": "GREATER_THAN_OR_EQUAL",
+                  "value": "p(Amount)"
+                },
+                "Variable name": "inv_count"
+              },
+              "children": [
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "buy_offer"
+                  }
+                },
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "inv_count"
+                  }
+                },
+                {
+                  "id": "DELETE_VARIABLE",
+                  "properties": {
+                    "Variable name": "increase_price"
+                  }
+                },
+                {
+                  "id": "_CUSTOM_ACTION_RETURN_TRUE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "_CUSTOM_ACTION_RETURN_TO_START"
+        }
+      ]
+    }
+  }
+}
